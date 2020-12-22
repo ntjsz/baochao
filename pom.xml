@@ -49,6 +49,13 @@
             <version>2.1.4</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -81,14 +88,8 @@
                 <configuration>
                     <verbose>true</verbose>
                     <overwrite>true</overwrite>
+                    <includeCompileDependencies>true</includeCompileDependencies>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>${mysql-connector-java.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
