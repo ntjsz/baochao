@@ -5,8 +5,8 @@
     <properties resource="application.properties"/>
 
     <context id="MyBatis3" targetRuntime="MyBatis3DynamicSql">
-        <jdbcConnection driverClass="${spring.datasource.driverClassName}}"
-                        connectionURL="${spring.datasource.url}}"
+        <jdbcConnection driverClass="${spring.datasource.driverClassName}"
+                        connectionURL="${spring.datasource.url}"
                         userId="${spring.datasource.username}"
                         password="${spring.datasource.password}"/>
 
