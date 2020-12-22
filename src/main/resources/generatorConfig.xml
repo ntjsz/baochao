@@ -8,7 +8,9 @@
         <jdbcConnection driverClass="${spring.datasource.driverClassName}"
                         connectionURL="${spring.datasource.url}"
                         userId="${spring.datasource.username}"
-                        password="${spring.datasource.password}"/>
+                        password="${spring.datasource.password}">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
 
         <javaModelGenerator targetPackage="com.example.baochao.repository.gen.model"
                             targetProject="src/main/java"/>
@@ -16,7 +18,6 @@
         <javaClientGenerator targetPackage="com.example.baochao.repository.gen.mapper"
                              targetProject="src/main/java"/>
 
-        <table tableName="%"
-               schema="baochao"/>
+        <table tableName="%"/>
     </context>
 </generatorConfiguration>
