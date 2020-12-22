@@ -16,6 +16,7 @@
         <javaClientGenerator targetPackage="com.example.baochao.repository.gen.mapper"
                              targetProject="src/main/java"/>
 
-        <table tableName="*" />
+        <table tableName="%"
+               schema="baochao"/>
     </context>
 </generatorConfiguration>
