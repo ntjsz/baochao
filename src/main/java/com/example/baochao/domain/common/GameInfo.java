@@ -1,25 +1,34 @@
 package com.example.baochao.domain.common;
 
+import com.example.baochao.domain.common.skill.Skill;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class GameInfo {
-
-    private Map<Integer, IngredientInfo> ingredients = new HashMap<>();
+    private Map<Integer, Ingredient> ingredients = new HashMap<>();
+    private Map<Integer, Skill> skills = new HashMap<>();
 
     private Map<Integer, ChefInfo> chefs = new HashMap<>();
 
     public void parse(JsonNode documentNode) {
         parseIngredients(documentNode.get("materials"));
-        parseChefs(documentNode.get("chefs"), documentNode.get("skills"));
+        parseSkills(documentNode.get("skills"));
+        //parseChefs(documentNode.get("chefs"), documentNode.get("skills"));
     }
 
     private void parseIngredients(JsonNode ingredientsNode) {
         for (JsonNode node : ingredientsNode) {
-            IngredientInfo info = IngredientInfo.parseNode(node);
-            ingredients.put(info.getId(), info);
+            Ingredient info = Ingredient.parseNode(node);
+            ingredients.put(info.getMaterialId(), info);
+        }
+    }
+
+    private void parseSkills(JsonNode skillsNode) {
+        for (JsonNode node : skillsNode) {
+            Skill skill = Skill.parseNode(node);
+            skills.put(skill.getSkillId(), skill);
         }
     }
 

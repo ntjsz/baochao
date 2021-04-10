@@ -11,6 +11,6 @@ public class CompetitionCalculator {
     }
 
     private List<CompetitionPipeline> buildPipelines() {
-
+        return null;
     }
 }

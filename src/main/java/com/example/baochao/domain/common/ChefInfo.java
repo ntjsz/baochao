@@ -1,6 +1,6 @@
 package com.example.baochao.domain.common;
 
-import com.example.baochao.domain.common.skill.SkillInfo;
+import com.example.baochao.domain.common.skill.Skill;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import java.util.Map;
@@ -11,8 +11,8 @@ public class ChefInfo {
     private int rarity;
 
     private CookPropertyMap cookPropertyMap;
-    private SkillInfo commonSkill;
-    private SkillInfo ultimateSkill;
+    private Skill commonSkill;
+    private Skill ultimateSkill;
 
     private int meat;
     private int fish;
@@ -36,11 +36,11 @@ public class ChefInfo {
         return cookPropertyMap;
     }
 
-    public SkillInfo getCommonSkill() {
+    public Skill getCommonSkill() {
         return commonSkill;
     }
 
-    public SkillInfo getUltimateSkill() {
+    public Skill getUltimateSkill() {
         return ultimateSkill;
     }
 
@@ -68,9 +68,9 @@ public class ChefInfo {
         chefInfo.cookPropertyMap = CookPropertyMap.parseNode(chefNode);
 
         int commonSkillId = chefNode.get("skill").asInt();
-        chefInfo.commonSkill = SkillInfo.parseNode(skillRawDataMap.get(commonSkillId));
+        chefInfo.commonSkill = Skill.parseNode(skillRawDataMap.get(commonSkillId));
         int ultimateSkillId = chefNode.get("ultimateSkill").asInt();
-        chefInfo.ultimateSkill = SkillInfo.parseNode(skillRawDataMap.get(ultimateSkillId));
+        chefInfo.ultimateSkill = Skill.parseNode(skillRawDataMap.get(ultimateSkillId));
 
         chefInfo.meat = chefNode.get("meat").asInt();
         chefInfo.fish = chefNode.get("fish").asInt();
